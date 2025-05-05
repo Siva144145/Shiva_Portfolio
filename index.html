@@ -6,11 +6,34 @@
   <title>Shiva Sankar Reddy | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #0d1117;
       color: #ffffff;
+    }
+    nav {
+      background-color: #0d1117;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      border-bottom: 1px solid #0ff;
+      z-index: 1000;
+    }
+    nav a {
+      color: #0ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-shadow: 0 0 10px #0ff;
     }
     header {
       text-align: center;
@@ -37,7 +60,7 @@
       display: inline-block;
     }
     section {
-      padding: 40px 20px;
+      padding: 60px 20px;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -74,11 +97,11 @@
       border: 2px solid #0ff;
       border-radius: 10px;
       padding: 20px;
-      transition: 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 15px #0ff;
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #0ff;
     }
     .card h5 {
       margin-top: 0;
@@ -97,16 +120,39 @@
     a {
       color: #0ff;
     }
+    ul.skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      list-style: none;
+      padding: 0;
+      gap: 15px;
+      text-align: center;
+    }
+    ul.skills-list li {
+      background: #1c1f25;
+      border: 1px solid #0ff;
+      padding: 10px;
+      border-radius: 10px;
+      color: #0ff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#timeline">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <header>
     <h1>Shiva Sankar Reddy</h1>
     <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
     <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="btn" download>Download Resume</a>
   </header>
 
-  <section>
+  <section id="about">
     <h2 class="section-title">About Me</h2>
     <p style="text-align: center; color: #bbb;">
       Technically skilled professional with 4+ years of experience in Oracle DBA, cloud engineering,
@@ -115,19 +161,39 @@
     </p>
   </section>
 
-  <section>
+  <section id="skills">
     <h2 class="section-title">Technical Skills</h2>
-    <ul style="color:#ccc; line-height:1.8;">
-      <li><strong>Languages:</strong> Python, SQL, JavaScript, Shell Script</li>
-      <li><strong>Frameworks:</strong> Django, Flask, React.js, Spring Boot</li>
-      <li><strong>Cloud & DevOps:</strong> AWS, Azure, GCP, Docker, Jenkins, Kubernetes</li>
-      <li><strong>Big Data:</strong> Spark, Hadoop, Kafka, Airflow</li>
-      <li><strong>Databases:</strong> Oracle, MySQL, PostgreSQL, MongoDB</li>
-      <li><strong>Tools:</strong> Tableau, Cognos, Git, JIRA, OEM 13c, ServiceNow</li>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>SQL</li>
+      <li>JavaScript</li>
+      <li>Shell Script</li>
+      <li>Django</li>
+      <li>Flask</li>
+      <li>React.js</li>
+      <li>Spring Boot</li>
+      <li>AWS</li>
+      <li>Azure</li>
+      <li>GCP</li>
+      <li>Docker</li>
+      <li>Jenkins</li>
+      <li>Kubernetes</li>
+      <li>Spark</li>
+      <li>Hadoop</li>
+      <li>Kafka</li>
+      <li>Airflow</li>
+      <li>Oracle</li>
+      <li>MySQL</li>
+      <li>PostgreSQL</li>
+      <li>MongoDB</li>
+      <li>Tableau</li>
+      <li>Cognos</li>
+      <li>Git</li>
+      <li>JIRA</li>
     </ul>
   </section>
 
-  <section>
+  <section id="projects">
     <h2 class="section-title">Projects</h2>
     <div class="project-grid">
       <div class="card">
@@ -153,7 +219,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="timeline">
     <h2 class="section-title">Education & Experience</h2>
     <div class="timeline">
       <div class="timeline-entry">
@@ -175,7 +241,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <h2 class="section-title">Contact</h2>
     <p style="text-align: center;">
       Email: <a href="mailto:spalashiva9929@gmail.com">spalashiva9929@gmail.com</a> <br>
