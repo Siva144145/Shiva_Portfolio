@@ -1,258 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shiva Sankar Reddy Pala | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shiva Sankar Reddy | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0d1117;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0e0e0e;
       color: #ffffff;
     }
-    nav {
-      background-color: #0d1117;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      border-bottom: 1px solid #0ff;
-      z-index: 1000;
-    }
-    nav a {
-      color: #0ff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      text-shadow: 0 0 10px #0ff;
-    }
+
     header {
+      background: linear-gradient(to right, #000000, #111111);
+      padding: 80px 20px;
       text-align: center;
-      padding: 60px 20px;
-      background: linear-gradient(145deg, #1f1f1f, #0d0d0d);
-      box-shadow: 0 0 20px #0ff;
     }
+
     header h1 {
       font-size: 3rem;
-      color: #0ff;
+      color: #00ffff;
     }
+
     header p {
       font-size: 1.2rem;
-      color: #ccc;
+      margin: 10px 0 20px;
     }
+
     .btn {
-      background-color: #0ff;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 6px;
+      background-color: #00ffff;
+      color: black;
+      padding: 12px 24px;
+      border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
-      margin-top: 20px;
-      display: inline-block;
     }
-    section {
+
+    .section {
       padding: 60px 20px;
       max-width: 1000px;
-      margin: 0 auto;
+      margin: auto;
     }
-    .section-title {
+
+    .section h2 {
       font-size: 2rem;
       text-align: center;
-      margin-bottom: 20px;
-      color: #0ff;
-    }
-    .timeline {
-      position: relative;
-      padding-left: 40px;
-      border-left: 3px solid #0ff;
-    }
-    .timeline-entry {
       margin-bottom: 30px;
+      color: #00ffff;
     }
-    .timeline-entry h4 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #fff;
+
+    .section p,
+    .section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
     }
-    .timeline-entry span {
-      font-size: 0.9rem;
-      color: #aaa;
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
     }
-    .project-grid {
+
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
+
     .card {
-      background-color: #161b22;
-      border: 2px solid #0ff;
+      border: 1px solid #00ffff;
       border-radius: 10px;
       padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #1c1c1c;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #0ff;
+
+    .card h4 {
+      color: #00ffff;
+      margin-bottom: 10px;
     }
-    .card h5 {
-      margin-top: 0;
-      color: #0ff;
+
+    .intro-section {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #000000, #111111);
+      color: white;
     }
-    .card p {
+
+    .highlighted-name {
+      color: #00ffff;
+    }
+
+    .intro-section h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .intro-section h3 {
+      font-size: 1.8rem;
       color: #ccc;
-      font-size: 0.95rem;
+      margin-bottom: 20px;
     }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      color: #888;
+
+    .intro-section p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #bbb;
     }
-    a {
-      color: #0ff;
+
+    .intro-buttons {
+      margin-top: 30px;
     }
-    ul.skills-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      list-style: none;
-      padding: 0;
-      gap: 15px;
-      text-align: center;
-    }
-    ul.skills-list li {
-      background: #1c1f25;
-      border: 1px solid #0ff;
-      padding: 10px;
-      border-radius: 10px;
-      color: #0ff;
+
+    .btn-outline {
+      border: 2px solid #00ffff;
+      padding: 10px 22px;
+      color: #00ffff;
+      border-radius: 5px;
+      text-decoration: none;
       font-weight: bold;
+      margin-left: 10px;
     }
   </style>
 </head>
+
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#timeline">Experience</a>
-    <a href="#contact">Contact</a>
-  </nav>
   <header>
     <h1>Shiva Sankar Reddy</h1>
     <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
     <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="btn" download>Download Resume</a>
   </header>
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p style="text-align: center; color: #bbb;">
-      Hi, It's Shiva
-      I'm a Senior Systems Engineer, technically skilled professional with 4+ years of experience in Oracle DBA, cloud engineering,
-      and full-stack development. Currently pursuing my Master's in Data Science at UMass Dartmouth.
-      Passionate about building scalable ML pipelines, data-driven web applications, and automating workflows.
+  <section id="home" class="intro-section">
+    <h2>Hi, It's <span class="highlighted-name">Shiva</span></h2>
+    <h3>I'm a Senior Systems Engineer</h3>
+    <p>
+      A highly motivated engineer with 4+ years of experience in Oracle DBA, AWS cloud services, and full-stack development.
+      I hold a Master’s degree in Data Science from the University of Massachusetts Dartmouth.
+      Passionate about building scalable ML pipelines, automating workflows, and delivering intelligent business solutions.
     </p>
+    <div class="intro-buttons">
+      <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="btn" download>Resume</a>
+      <a href="#contact" class="btn-outline">Contact</a>
+    </div>
   </section>
 
-  <section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>SQL</li>
-      <li>JavaScript</li>
-      <li>Shell Script</li>
-      <li>Django</li>
-      <li>Flask</li>
-      <li>React.js</li>
-      <li>Spring Boot</li>
-      <li>AWS</li>
-      <li>Azure</li>
-      <li>GCP</li>
-      <li>Docker</li>
-      <li>Jenkins</li>
-      <li>Kubernetes</li>
-      <li>Spark</li>
-      <li>Hadoop</li>
-      <li>Kafka</li>
-      <li>Airflow</li>
-      <li>Oracle</li>
-      <li>MySQL</li>
-      <li>PostgreSQL</li>
-      <li>MongoDB</li>
-      <li>Tableau</li>
-      <li>Cognos</li>
-      <li>Git</li>
-      <li>JIRA</li>
+  <section class="section" id="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>Languages:</strong> Python, SQL, JavaScript, Shell Script</li>
+      <li><strong>Frameworks:</strong> Django, Flask, React.js, Spring Boot</li>
+      <li><strong>Cloud & DevOps:</strong> AWS, Azure, GCP, Docker, Jenkins, Kubernetes</li>
+      <li><strong>Big Data:</strong> Spark, Hadoop, Kafka, Airflow</li>
+      <li><strong>Databases:</strong> Oracle, MySQL, PostgreSQL, MongoDB</li>
+      <li><strong>Tools:</strong> Tableau, Cognos, Git, JIRA, OEM 13c, ServiceNow</li>
     </ul>
   </section>
 
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-grid">
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
       <div class="card">
-        <h5>Personalized Restaurant Recommendation System</h5>
-        <p><em>Django, React.js, MySQL, TensorFlow</em></p>
-        <p>Full-stack web app with hybrid collaborative and content-based ML models for personalized recommendations.</p>
+        <h4>Personalized Restaurant Recommendation System</h4>
+        <em>Django, React.js, MySQL, TensorFlow</em>
+        <p>Full-stack web app using hybrid collaborative and content-based ML models for personalized recommendations.</p>
       </div>
       <div class="card">
-        <h5>Hospital Management System</h5>
-        <p><em>Flask, MongoDB, HTML/CSS, IoT</em></p>
+        <h4>Hospital Management System</h4>
+        <em>Flask, MongoDB, HTML/CSS, IoT</em>
         <p>Managed patient data, appointments, and medication with real-time vitals tracking using IoT mock data.</p>
       </div>
       <div class="card">
-        <h5>AWS Spotify Data Analysis</h5>
-        <p><em>AWS S3, Glue, Athena, QuickSight</em></p>
+        <h4>AWS Spotify Data Analysis</h4>
+        <em>AWS S3, Glue, Athena, QuickSight</em>
         <p>Analyzed Spotify listening data using AWS serverless stack with interactive visualizations in QuickSight.</p>
       </div>
       <div class="card">
-        <h5>Computer Graphics: 3D Fish Aquarium</h5>
-        <p><em>Three.js, WebGL</em></p>
+        <h4>Computer Graphics: 3D Fish Aquarium</h4>
+        <em>Three.js, WebGL</em>
         <p>Simulated animated aquarium with fish, floating plants, lighting, and tent using 3D graphics transformations.</p>
       </div>
     </div>
   </section>
 
-  <section id="timeline">
-    <h2 class="section-title">Education & Experience</h2>
-    <div class="timeline">
-      <div class="timeline-entry">
-        <h4>University of Massachusetts Dartmouth</h4>
-        <span>MS in Data Science (2023 – 2025)</span>
-      </div>
-      <div class="timeline-entry">
-        <h4>Infosys Ltd. – Senior Systems Engineer</h4>
-        <span>Client: Conagra Brands (2022 – 2023)</span>
-      </div>
-      <div class="timeline-entry">
-        <h4>Tata Consultancy Services – Systems Engineer</h4>
-        <span>Project: Ericsson, Refinitiv (2019 – 2022)</span>
-      </div>
-      <div class="timeline-entry">
-        <h4>Airport Authority of India – Intern</h4>
-        <span>Electronics & Communication (2018 – 2019)</span>
-      </div>
-    </div>
+  <section class="section" id="education">
+    <h2>Education & Experience</h2>
+    <ul>
+      <li><strong>University of Massachusetts Dartmouth</strong> — MS in Data Science (2023 – 2025)</li>
+      <li><strong>Infosys Ltd. – Senior Systems Engineer</strong> — Client: Conagra Brands (2022 – 2023)</li>
+      <li><strong>Tata Consultancy Services – Systems Engineer</strong> — Projects: Ericsson, Refinitiv (2019 – 2022)</li>
+      <li><strong>Airport Authority of India – Intern</strong> — Electronics & Communication (2018 – 2019)</li>
+    </ul>
   </section>
 
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p style="text-align: center;">
-      Email: <a href="mailto:spalashiva9929@gmail.com">spalashiva9929@gmail.com</a> <br>
-      LinkedIn: <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" target="_blank">linkedin.com/in/siva-sankar-reddy-pala</a> <br>
-      GitHub: <a href="https://github.com/Siva144145" target="_blank">github.com/Siva144145</a>
-    </p>
+  <section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Email: shivashankar.reddy144@gmail.com</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" style="color: #00ffff;">siva-sankar-reddy-pala</a></p>
+    <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="btn" download>Download Resume</a>
   </section>
-
-  <footer>
-    &copy; 2025 Shiva Sankar Reddy. All rights reserved.
-  </footer>
 </body>
+
 </html>
