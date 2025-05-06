@@ -1,163 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Shiva Sankar Reddy Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shiva Sankar Reddy | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #111;
-            color: #fff;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-        header {
-            text-align: center;
-            padding: 50px 20px 20px;
-        }
-        header h1 {
-            color: #00f7ff;
-            margin: 0;
-        }
-        .download-resume {
-            margin: 10px;
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #00f7ff;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        h2 {
-            text-align: center;
-            margin-top: 40px;
-            color: #00f7ff;
-        }
-        .center {
-            text-align: center;
-        }
-        .skills, .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px 20px;
-            gap: 10px;
-        }
-        .skill-icon {
-            text-align: center;
-            padding: 10px;
-        }
-        .skill-icon i {
-            font-size: 30px;
-            color: #00f7ff;
-        }
-        .card {
-            background-color: #1b1b1b;
-            border: 1px solid #00f7ff;
-            border-radius: 10px;
-            padding: 20px;
-            width: 250px;
-            box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
-        }
-        .card h3 {
-            color: #00f7ff;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 40px;
-            padding: 20px;
-        }
-        .timeline-item {
-            margin-bottom: 20px;
-            border-left: 2px solid #00f7ff;
-            padding-left: 10px;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    body {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding-bottom: 50px;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    header h1 {
+      color: #0fffc1;
+      font-size: 36px;
+    }
+    .download-resume {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0fffc1;
+      color: #1e293b;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #0fffc1;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 28px;
+    }
+    .intro, .about, .skills, .projects, .timeline, .contact {
+      text-align: center;
+      padding: 20px;
+    }
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    .skills-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .skill-icon i {
+      font-size: 30px;
+      color: #0fffc1;
+    }
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #1e293b;
+      border-left: 4px solid #0fffc1;
+      padding: 20px;
+      border-radius: 10px;
+      width: 260px;
+      text-align: left;
+    }
+    .card h3 {
+      color: #0fffc1;
+      font-size: 16px;
+    }
+    .timeline-container {
+      max-width: 900px;
+      margin: 0 auto;
+      border-left: 3px solid #0fffc1;
+      padding-left: 20px;
+      margin-top: 30px;
+    }
+    .timeline-item {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: -10px;
+      background: #0fffc1;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .timeline-item h4 {
+      margin-bottom: 5px;
+      color: #0fffc1;
+    }
+    footer {
+      text-align: center;
+      padding-top: 30px;
+    }
+    a {
+      color: #0fffc1;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Shiva Sankar Reddy</h1>
-        <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
-        <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="download-resume" download>Download Resume</a>
-    </header>
+  <header>
+    <h1>Shiva Sankar Reddy</h1>
+    <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
+    <a class="download-resume" href="Shiva_Shankar_Reddy_Pala_Resume.docx" download>Download Resume</a>
+  </header>
 
-    <div class="center">
-        <h2>Hi, It's <span style="color:#00f7ff;">Shiva</span></h2>
-        <p><strong>I'm a Senior Systems Engineer</strong></p>
-        <p style="max-width:800px; margin:auto;">A highly motivated engineer with 4+ years of experience in Oracle DBA, AWS cloud services, and full-stack development. I hold a Master's degree in Data Science from the University of Massachusetts Dartmouth. Passionate about building scalable ML pipelines, automating workflows, and delivering intelligent business solutions.</p>
-    </div>
+  <div class="intro">
+    <h2>Hi, It's <span style="color:#0fffc1">Shiva</span></h2>
+    <p><strong>I'm a Senior Systems Engineer</strong></p>
+  </div>
+  <div class="about">
+    <p>A highly motivated engineer with 4+ years of experience in Oracle DBA, AWS cloud services, and full-stack development. I hold a Master's degree in Data Science from the University of Massachusetts Dartmouth. Passionate about building scalable ML pipelines, automating workflows, and delivering intelligent business solutions.</p>
+  </div>
 
-    <h2>Technical Skills</h2>
-    <div class="skills">
-        <div class="skill-icon"><i class="fab fa-python"></i><br>Python</div>
-        <div class="skill-icon"><i class="fas fa-database"></i><br>SQL</div>
-        <div class="skill-icon"><i class="fab fa-js-square"></i><br>JavaScript</div>
-        <div class="skill-icon"><i class="fab fa-aws"></i><br>AWS</div>
-        <div class="skill-icon"><i class="fas fa-database"></i><br>Oracle</div>
-        <div class="skill-icon"><i class="fab fa-react"></i><br>React.js</div>
-        <div class="skill-icon"><i class="fab fa-docker"></i><br>Docker</div>
-        <div class="skill-icon"><i class="fab fa-git-alt"></i><br>Git</div>
-    </div>
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-icon"><i class="fab fa-python"></i><br>Python</div>
+    <div class="skill-icon"><i class="fas fa-database"></i><br>SQL</div>
+    <div class="skill-icon"><i class="fab fa-js-square"></i><br>JavaScript</div>
+    <div class="skill-icon"><i class="fab fa-aws"></i><br>AWS</div>
+    <div class="skill-icon"><i class="fas fa-database"></i><br>Oracle</div>
+    <div class="skill-icon"><i class="fab fa-react"></i><br>React.js</div>
+    <div class="skill-icon"><i class="fab fa-docker"></i><br>Docker</div>
+    <div class="skill-icon"><i class="fab fa-git-alt"></i><br>Git</div>
+  </div>
 
-    <h2>Projects</h2>
-    <div class="projects">
-        <div class="card">
-            <h3>Personalized Restaurant Recommendation System</h3>
-            <p><em>Django, React.js, MySQL, TensorFlow</em><br>Built a personalized hybrid ML-based recommendation system integrating collaborative and content-based filtering techniques. Designed responsive UI using React.js and deployed with Django backend and MySQL DB.</p>
-        </div>
-        <div class="card">
-            <h3>Hospital Management System</h3>
-            <p><em>Flask, MongoDB, HTML/CSS, IoT</em><br>Created a patient data management system to track appointments, vitals, and medications. Integrated IoT sensors for real-time updates and used Flask for backend and MongoDB for storage.</p>
-        </div>
-        <div class="card">
-            <h3>AWS Spotify Data Analysis</h3>
-            <p><em>AWS S3, Glue, Athena, QuickSight</em><br>Analyzed Spotify listening patterns using AWS serverless stack. Built ETL pipelines in Glue and queried with Athena to power dashboards in QuickSight with rich visual insights.</p>
-        </div>
-        <div class="card">
-            <h3>Computer Graphics: 3D Fish Aquarium</h3>
-            <p><em>Three.js, WebGL</em><br>Developed a 3D animated aquarium featuring floating fish, plants, and a tent using transformation matrices and WebGL shaders. Included camera manipulation and lighting for realism.</p>
-        </div>
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="card">
+      <h3>Personalized Restaurant Recommendation System</h3>
+      <p><em>Django, React.js, MySQL, TensorFlow</em><br>Built a personalized hybrid ML-based recommendation system integrating collaborative and content-based filtering techniques. Designed responsive UI using React.js and deployed with Django backend and MySQL DB.</p>
     </div>
-
-    <h2 class="highlight center">Education & Experience</h2>
-    <div class="center timeline">
-    <div class="timeline-item">
-    <strong class="highlight">University of Massachusetts Dartmouth</strong><br>
-      MS in Data Science (2023–2025)
+    <div class="card">
+      <h3>Hospital Management System</h3>
+      <p><em>Flask, MongoDB, HTML/CSS, IoT</em><br>Created a patient data management system to track appointments, vitals, and medications. Integrated IoT sensors for real-time updates and used Flask for backend and MongoDB for storage.</p>
     </div>
-    <div class="timeline-item">
-      <strong class="highlight">Infosys Ltd. – Senior Systems Engineer</strong><br>
-      Client: Conagra Brands (2022–2023)
+    <div class="card">
+      <h3>AWS Spotify Data Analysis</h3>
+      <p><em>AWS S3, Glue, Athena, QuickSight</em><br>Analyzed Spotify listening patterns using AWS serverless stack. Built ETL pipelines in Glue and queried with Athena to power dashboards in QuickSight with rich visual insights.</p>
     </div>
-    <div class="timeline-item">
-      <strong class="highlight">TCS – Systems Engineer</strong><br>
-      Project: Ericsson & Refinitiv (2019–2022)
-    </div>
-    <div class="timeline-item">
-      <strong class="highlight">Airport Authority of India – Intern</strong><br>
-      Electronics & Communication (2018–2019)
+    <div class="card">
+      <h3>Computer Graphics: 3D Fish Aquarium</h3>
+      <p><em>Three.js, WebGL</em><br>Developed a 3D animated aquarium featuring floating fish, plants, and a tent using transformation matrices and WebGL shaders. Included camera manipulation and lighting for realism.</p>
     </div>
   </div>
 
-    <section class="section" id="contact">
+  <h2>Education & Experience</h2>
+  <div class="timeline-container">
+    <div class="timeline-item">
+      <h4>University of Massachusetts Dartmouth</h4>
+      <p>MS in Data Science (2023–2025)</p>
+    </div>
+    <div class="timeline-item">
+      <h4>SRM University, Chennai</h4>
+      <p>B.Tech in ECE (2015–2019)</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Infosys Ltd. – Senior Systems Engineer</h4>
+      <p>Client: Conagra Brands (2022–2023)</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Tata Consultancy Services – Systems Engineer</h4>
+      <p>Project: Ericsson & Refinitiv (2019–2022)</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Airport Authority of India – Intern</h4>
+      <p>Electronics & Communication (2018–2019)</p>
+    </div>
+  </div>
+
+  <footer class="contact">
     <h2>Contact</h2>
     <p>Email: shivashankar.reddy144@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" style="color: #00ffff;">siva-sankar-reddy-pala</a></p>
-    <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="btn" download>Download Resume</a>
-  </section>
-    
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a">siva-sankar-reddy-pala</a></p>
+  </footer>
 </body>
 </html>
