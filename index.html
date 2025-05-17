@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: #fdf8f4;
+      background-color: #fffaf5; /* light peach background */
       color: #212529;
       line-height: 1.6;
       scroll-behavior: smooth;
@@ -19,23 +19,14 @@
       padding: 50px 20px 20px;
     }
     header h1 {
-      color: #007bff;
+      color: #ff7c00;
       margin: 0;
-    }
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 10px;
-      display: block;
-      border: 3px solid #f77f00;
     }
     .download-resume {
       margin: 10px;
       display: inline-block;
       padding: 10px 20px;
-      background-color: #007bff;
+      background-color: #ff7c00;
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -43,7 +34,7 @@
     h2 {
       text-align: center;
       margin-top: 40px;
-      color: #f77f00;
+      color: #ff7c00;
     }
     .center {
       text-align: center;
@@ -58,110 +49,63 @@
     .skill-icon {
       text-align: center;
       padding: 10px;
+      cursor: pointer;
     }
     .skill-icon i {
       font-size: 30px;
-      color: #007bff;
+      color: #ff7c00;
+      transition: transform 0.3s ease;
+    }
+    .skill-icon:hover i {
+      animation: blink 0.5s infinite alternate;
+    }
+    @keyframes blink {
+      0% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0.5; transform: scale(0.9); }
     }
     .card {
       background-color: #fff;
-      border: 1px solid #ffdab9;
+      border: 1px solid #f6d3bd;
       border-radius: 10px;
       padding: 20px;
       width: 260px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
     .card h3 {
-      color: #f77f00;
+      color: #ff7c00;
       font-size: 16px;
       margin-bottom: 5px;
     }
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 40px;
-      padding: 20px;
-    }
-    .timeline-item {
-      margin-bottom: 20px;
-      border-left: 3px solid #f77f00;
-      padding-left: 15px;
-    }
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #6c757d;
+    .card a {
+      color: #8a2be2;
+      word-break: break-all;
+      font-size: 13px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="IMG_0649 2.JPG" alt="Shiva Photo" class="profile-img">
-    <h1>Shiva Sankar Reddy</h1>
-    <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
-    <a href="Shiva_Shankar_Reddy_Pala_Resume.pdf" class="download-resume" download>Download Resume</a>
-  </header>
-
-  <section class="section">
-    <h2>Hi, It's <span style="color:#007bff;">Shiva</span></h2>
-    <p class="center"><strong>I'm a Senior Systems Engineer</strong></p>
-    <p style="max-width:800px; margin:auto; text-align:center;">A highly motivated Senior Systems Engineer and Data Scientist with 4+ years of experience in Oracle DBA, AWS cloud services, and full-stack development. I hold a Master's degree in Data Science from the University of Massachusetts Dartmouth. Passionate about building scalable ML pipelines, automating workflows, and delivering intelligent business solutions.</p>
-  </section>
-
-  <section class="section">
-    <h2>Education & Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item"><strong>University of Massachusetts Dartmouth</strong><br>MS in Data Science (2023–2025)</div>
-      <div class="timeline-item"><strong>SRM University, Chennai</strong><br>B.Tech in ECE (2015–2019)</div>
-      <div class="timeline-item"><strong>Infosys Ltd. – Senior Systems Engineer</strong><br>Client: Conagra Brands (2022–2023)</div>
-      <div class="timeline-item"><strong>Tata Consultancy Services – Systems Engineer</strong><br>Project: Ericsson & Refinitiv (2019–2022)</div>
-      <div class="timeline-item"><strong>Airport Authority of India – Intern</strong><br>Electronics & Communication (2018–2019)</div>
+  <section class="projects">
+    <div class="card">
+      <h3>Personalized Restaurant Recommendation System</h3>
+      <p><em>Django, React.js, MySQL, TensorFlow</em><br>
+      Hybrid ML model for personalized restaurant recommendations. Built content and collaborative filtering. Integrated UI with real-time filtering and responsive components.</p>
+    </div>
+    <div class="card">
+      <h3>Hospital Management System</h3>
+      <p><em>Flask, MongoDB, HTML/CSS, IoT</em><br>
+      Managed patients, appointments, and medication tracking. Used IoT to track vitals and alerts. Enabled CRUD operations with Flask backend and MongoDB.</p>
+    </div>
+    <div class="card">
+      <h3>AWS Spotify Data Analysis</h3>
+      <p><em>AWS S3, Glue, Athena, QuickSight</em><br>
+      Spotify data analysis using AWS architecture. Built ETL pipeline and data lake. Used QuickSight for interactive insights dashboard.</p>
+    </div>
+    <div class="card">
+      <h3>Immersive 3D Aquarium Simulation</h3>
+      <p><strong>Technologies Used:</strong> Three.js, WebGL, D3.js<br>
+      Developed an animated aquarium environment inside a cozy tent using 3D graphics and transformations. Features include floating fish, plants, lighting effects, and smooth camera controls built with WebGL shaders and Three.js.</p>
+      <p><strong>GitHub Link:</strong> <a href="https://siva144145.github.io/3D_FISH_AQUARIUM/" target="_blank">https://siva144145.github.io/3D_FISH_AQUARIUM/</a></p>
     </div>
   </section>
-
-  <section class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Personalized Restaurant Recommendation System</h3>
-        <p><em>Django, React.js, MySQL, TensorFlow</em><br>Hybrid ML model for personalized restaurant recommendations. Built content and collaborative filtering. Integrated UI with real-time filtering and responsive components.</p>
-      </div>
-      <div class="card">
-        <h3>Hospital Management System</h3>
-        <p><em>Flask, MongoDB, HTML/CSS, IoT</em><br>Managed patients, appointments, and medication tracking. Used IoT to track vitals and alerts. Enabled CRUD operations with Flask backend and MongoDB.</p>
-      </div>
-      <div class="card">
-        <h3>AWS Spotify Data Analysis</h3>
-        <p><em>AWS S3, Glue, Athena, QuickSight</em><br>Spotify data analysis using AWS architecture. Built ETL pipeline and data lake. Used QuickSight for interactive insights dashboard.</p>
-      </div>
-      <div class="card">
-  <h3>Immersive 3D Aquarium Simulation</h3>
-  <p><strong>Technologies Used:</strong> Three.js, WebGL, D3.js</p>
-  <p>Developed an animated aquarium environment inside a cozy tent using 3D graphics and transformations. Features include floating fish, plants, lighting effects, and smooth camera controls built with WebGL shaders and Three.js.</p>
-  <p><strong>GitHub Link:</strong> <a href="https://siva144145.github.io/3D_FISH_AQUARIUM/" target="_blank">https://siva144145.github.io/3D_FISH_AQUARIUM/</a></p>
-</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Technical Skills</h2>
-    <div class="skills">
-      <div class="skill-icon"><i class="fab fa-python"></i><br>Python</div>
-      <div class="skill-icon"><i class="fas fa-database"></i><br>SQL</div>
-      <div class="skill-icon"><i class="fab fa-js-square"></i><br>JavaScript</div>
-      <div class="skill-icon"><i class="fab fa-aws"></i><br>AWS</div>
-      <div class="skill-icon"><i class="fas fa-database"></i><br>Oracle</div>
-      <div class="skill-icon"><i class="fab fa-react"></i><br>React.js</div>
-      <div class="skill-icon"><i class="fab fa-docker"></i><br>Docker</div>
-      <div class="skill-icon"><i class="fab fa-git-alt"></i><br>Git</div>
-    </div>
-  </section>
-
-  <footer>
-    <p>Email: shivashankar.reddy144@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" target="_blank">siva-sankar-reddy-pala</a></p>
-  </footer>
 </body>
 </html>
