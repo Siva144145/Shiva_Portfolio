@@ -10,395 +10,404 @@
     :root {
       --primary: #7e4dfc;
       --secondary: #4a90e2;
+      --accent: #ffd700;
       --text: #2d3748;
-      --background: #f7fafc;
-      --card: #ffffff;
-      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      --background: linear-gradient(135deg, #7e4dfc 0%, #4a90e2 100%);
+      --card: rgba(255,255,255,0.18);
+      --glass: rgba(255,255,255,0.25);
+      --shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
     }
-
-    * {
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       font-family: 'Poppins', sans-serif;
       background: var(--background);
       color: var(--text);
-      line-height: 1.6;
+      scroll-behavior: smooth;
+      min-height: 100vh;
+    }
+    body {
+      min-height: 100vh;
+      background: var(--background);
       overflow-x: hidden;
     }
-
-    /* Smooth Scroll */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Header Styles */
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      position: relative;
-      background: var(--gradient);
-      color: white;
+    /* Glassmorphism Card */
+    .glass-card {
+      background: var(--glass);
+      border-radius: 2rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      padding: 2.5rem 2rem 2rem 2rem;
+      margin: 2rem auto 0 auto;
+      max-width: 420px;
       text-align: center;
-    }
-
-    .profile-container {
       position: relative;
-      margin-bottom: 2rem;
+      z-index: 2;
+      animation: fadeInUp 1.2s cubic-bezier(.23,1.01,.32,1) 0.1s backwards;
     }
-
     .profile-img {
-      width: 200px;
-      height: 200px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 24px rgba(126,77,252,0.18);
+      margin-bottom: 1.2rem;
+      background: #fff;
+      transition: transform 0.3s;
     }
-
     .profile-img:hover {
-      transform: scale(1.05);
+      transform: scale(1.07);
     }
-
-    header h1 {
+    .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin: 1rem 0;
-      animation: fadeInUp 1s ease;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 8px rgba(126,77,252,0.18);
     }
-
-    header p {
-      font-size: 1.2rem;
+    .hero-role {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
       opacity: 0.9;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease 0.2s backwards;
     }
-
+    .hero-socials {
+      margin-bottom: 1.2rem;
+    }
+    .hero-socials a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    .hero-socials a:hover {
+      color: var(--accent);
+      transform: translateY(-3px) scale(1.15);
+    }
     .download-resume {
       display: inline-block;
-      padding: 1rem 2rem;
-      background: white;
+      padding: 0.7rem 2rem;
+      background: #fff;
       color: var(--primary);
       text-decoration: none;
       border-radius: 50px;
       font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      animation: fadeInUp 1s ease 0.4s backwards;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s;
     }
-
     .download-resume:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px) scale(1.04);
     }
-
-    /* About Section */
-    .about {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about h2 {
+    /* Section Headings */
+    .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.3rem;
+      color: #fff;
+      text-align: center;
+      margin: 4rem 0 2.5rem 0;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(126,77,252,0.18);
+    }
+    .section-title-alt {
       color: var(--primary);
-      margin-bottom: 2rem;
+      text-shadow: none;
     }
-
-    /* Timeline */
-    .timeline {
-      max-width: 1000px;
-      margin: 4rem auto;
+    /* Timeline Modern */
+    .timeline-modern {
       position: relative;
-      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto 4rem auto;
+      padding: 0 1rem;
     }
-
-    .timeline::before {
+    .timeline-modern::before {
       content: '';
       position: absolute;
       left: 50%;
+      top: 0;
       transform: translateX(-50%);
-      width: 2px;
+      width: 4px;
       height: 100%;
-      background: var(--gradient);
+      background: linear-gradient(180deg, #fff 0%, var(--primary) 100%);
+      z-index: 0;
+      border-radius: 2px;
+      opacity: 0.5;
     }
-
-    .timeline-item {
-      margin: 2rem 0;
+    .timeline-node {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3.5rem;
       position: relative;
-      width: 50%;
-      padding: 0 2rem;
+      z-index: 1;
     }
-
-    .timeline-item:nth-child(odd) {
-      left: 0;
-      text-align: right;
+    .timeline-node.left { flex-direction: row; justify-content: flex-end; }
+    .timeline-node.right { flex-direction: row-reverse; justify-content: flex-start; }
+    .timeline-icon {
+      background: linear-gradient(135deg, #7e4dfc, #4a90e2);
+      color: #fff;
+      border-radius: 50%;
+      width: 54px; height: 54px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 2px 8px rgba(126,77,252,0.18);
+      margin: 0 1.5rem;
+      border: 3px solid #fff;
+      z-index: 2;
+      transition: transform 0.2s;
     }
-
-    .timeline-item:nth-child(even) {
-      left: 50%;
-      text-align: left;
-    }
-
-    .timeline-content {
+    .timeline-icon:hover { transform: scale(1.12); }
+    .timeline-card {
       background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(126,77,252,0.08);
+      padding: 1.5rem 2rem;
+      min-width: 260px;
+      text-align: left;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 2;
     }
-
-    .timeline-content:hover {
-      transform: translateY(-5px);
+    .timeline-card:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(126,77,252,0.13);
     }
-
     /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
+      gap: 2.5rem;
+      padding: 2rem 1rem 4rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .card {
       background: var(--card);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 4px 24px rgba(126,77,252,0.08);
+      border-left: 5px solid var(--primary);
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
     }
-
     .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(126,77,252,0.13);
+      border-left: 5px solid var(--secondary);
     }
-
     .card h3 {
       color: var(--primary);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
     }
-
     /* Skills */
     .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
-      padding: 4rem 2rem;
-      max-width: 1200px;
+      padding: 2rem 1rem 4rem 1rem;
+      max-width: 900px;
       margin: 0 auto;
     }
-
     .skill-icon {
-      text-align: center;
-      font-size: 2.5rem;
+      background: linear-gradient(135deg, #fff 60%, #e0e7ff 100%);
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
       color: var(--primary);
-      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(126,77,252,0.10);
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-weight: 600;
+      border: 2px solid #fff;
     }
-
-    .skill-icon i {
-      margin-bottom: 0.5rem;
-    }
-
     .skill-icon:hover {
-      transform: translateY(-5px);
+      transform: scale(1.09) translateY(-4px);
+      box-shadow: 0 8px 24px rgba(126,77,252,0.13);
       color: var(--secondary);
     }
-
+    .skill-label {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      color: #444;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
     /* Footer */
     footer {
-      background: var(--gradient);
-      color: white;
-      padding: 3rem 2rem;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      padding: 2.5rem 1rem 1.5rem 1rem;
       text-align: center;
+      font-size: 1.1rem;
+      border-top: 1.5px solid rgba(255,255,255,0.13);
+      margin-top: 2rem;
     }
-
     footer a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       opacity: 0.9;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s, color 0.3s;
     }
-
     footer a:hover {
       opacity: 1;
+      color: var(--accent);
     }
-
     /* Animations */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     /* Responsive Design */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.5rem;
-      }
-
-      .timeline::before {
-        left: 0;
-      }
-
-      .timeline-item {
-        width: 100%;
-        left: 0 !important;
-        text-align: left !important;
-        padding-left: 2rem;
-      }
-
-      .projects {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 900px) {
+      .timeline-modern { padding: 0; }
+      .timeline-card { min-width: 180px; padding: 1.2rem 1rem; }
+    }
+    @media (max-width: 700px) {
+      .glass-card { max-width: 98vw; padding: 1.5rem 0.5rem; }
+      .section-title { font-size: 1.5rem; }
+      .timeline-modern::before { left: 20px; }
+      .timeline-node { flex-direction: column !important; align-items: flex-start; margin-bottom: 2.2rem; }
+      .timeline-icon { margin: 0 0 1rem 0; }
+      .timeline-card { min-width: 0; width: 100%; }
+      .projects { grid-template-columns: 1fr; }
+      .skills { gap: 1rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="profile-container">
-      <img src="IMG_0459.jpeg" alt="Shiva Photo" class="profile-img">
-    </div>
-    <h1>Shiva Sankar Reddy</h1>
-    <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
-    <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="download-resume" download>
-      <i class="fas fa-download"></i> Download Resume
-    </a>
-  </header>
-
-  <section class="about">
-    <h2>About Me</h2>
-    <p>I'm a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. Currently pursuing a Master's degree in Data Science from the University of Massachusetts Dartmouth.</p>
-  </section>
-
-  <section>
-    <h2 style="text-align: center; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 3rem;">Education & Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>University of Massachusetts Dartmouth</h3>
-          <p>MS in Data Science (2023–2025)</p>
-        </div>
+  <!-- HERO SECTION -->
+  <section style="min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;">
+    <div class="glass-card">
+      <img src="IMG_0459.jpeg" alt="Shiva Photo" class="profile-img" />
+      <div class="hero-title">Shiva Sankar Reddy</div>
+      <div class="hero-role">Systems Engineer | Data Scientist | AWS Cloud Engineer</div>
+      <div class="hero-socials">
+        <a href="mailto:shivashankar.reddy144@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/shivashankar144" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>SRM University, Chennai</h3>
-          <p>B.Tech in ECE (2015–2019)</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Infosys Ltd. – Senior Systems Engineer</h3>
-          <p>Client: Conagra Brands (2022–2023)</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Tata Consultancy Services</h3>
-          <p>Systems Engineer (2019–2022)</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-content">
-          <h3>Airport Authority of India</h3>
-          <p>Electronics & Communication Intern (2018–2019)</p>
-        </div>
-      </div>
+      <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="download-resume" download>
+        <i class="fas fa-download"></i> Download Resume
+      </a>
     </div>
   </section>
 
-  <section>
-    <h2 style="text-align: center; color: var(--primary); font-family: 'Playfair Display', serif; margin: 3rem 0;">Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Personalized Restaurant Recommendation System</h3>
-        <p><em>Django, React.js, MySQL, TensorFlow</em></p>
-        <p>Hybrid ML model for personalized restaurant recommendations. Built content and collaborative filtering. Integrated UI with real-time filtering and responsive components.</p>
+  <!-- ABOUT SECTION -->
+  <div class="section-title section-title-alt" style="margin-top:0;">About Me</div>
+  <section style="max-width:900px;margin:0 auto 2.5rem auto;text-align:center;">
+    <p style="font-size:1.15rem;color:#333;opacity:0.92;">I'm a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. Currently pursuing a Master's degree in Data Science from the University of Massachusetts Dartmouth.</p>
+  </section>
+
+  <!-- TIMELINE SECTION -->
+  <div class="section-title">Education & Experience</div>
+  <section class="timeline-modern">
+    <div class="timeline-node left">
+      <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="timeline-card">
+        <h3>University of Massachusetts Dartmouth</h3>
+        <p>MS in Data Science (2023–2025)</p>
       </div>
-      <div class="card">
-        <h3>Hospital Management System</h3>
-        <p><em>Flask, MongoDB, HTML/CSS, IoT</em></p>
-        <p>Managed patients, appointments, and medication tracking. Used IoT to track vitals and alerts. Enabled CRUD operations with Flask backend and MongoDB.</p>
+    </div>
+    <div class="timeline-node right">
+      <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+      <div class="timeline-card">
+        <h3>SRM University, Chennai</h3>
+        <p>B.Tech in ECE (2015–2019)</p>
       </div>
-      <div class="card">
-        <h3>AWS Spotify Data Analysis</h3>
-        <p><em>AWS S3, Glue, Athena, QuickSight</em></p>
-        <p>Spotify data analysis using AWS architecture. Built ETL pipeline and data lake. Used QuickSight for interactive insights dashboard.</p>
+    </div>
+    <div class="timeline-node left">
+      <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="timeline-card">
+        <h3>Infosys Ltd. – Senior Systems Engineer</h3>
+        <p>Client: Conagra Brands (2022–2023)</p>
       </div>
-      <div class="card">
-        <h3>Immersive 3D Aquarium Simulation</h3>
-        <p><em>Three.js, WebGL, D3.js</em></p>
-        <p>Developed an animated aquarium environment with floating fish, plants, and lighting effects. Features smooth camera controls and WebGL shaders.</p>
-        <a href="https://siva144145.github.io/3D_FISH_AQUARIUM/" target="_blank" style="color: var(--primary); text-decoration: none; display: inline-block; margin-top: 1rem;">
-          View Project <i class="fas fa-external-link-alt"></i>
-        </a>
+    </div>
+    <div class="timeline-node right">
+      <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="timeline-card">
+        <h3>Tata Consultancy Services</h3>
+        <p>Systems Engineer (2019–2022)</p>
+      </div>
+    </div>
+    <div class="timeline-node left">
+      <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
+      <div class="timeline-card">
+        <h3>Airport Authority of India</h3>
+        <p>Electronics & Communication Intern (2018–2019)</p>
       </div>
     </div>
   </section>
 
-  <section>
-    <h2 style="text-align: center; color: var(--primary); font-family: 'Playfair Display', serif; margin: 3rem 0;">Technical Skills</h2>
-    <div class="skills">
-      <div class="skill-icon">
-        <i class="fab fa-python"></i>
-        <p>Python</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fas fa-database"></i>
-        <p>SQL</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fab fa-js-square"></i>
-        <p>JavaScript</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fab fa-aws"></i>
-        <p>AWS</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fas fa-database"></i>
-        <p>Oracle</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fab fa-react"></i>
-        <p>React.js</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fab fa-docker"></i>
-        <p>Docker</p>
-      </div>
-      <div class="skill-icon">
-        <i class="fab fa-git-alt"></i>
-        <p>Git</p>
-      </div>
+  <!-- PROJECTS SECTION -->
+  <div class="section-title">Projects</div>
+  <section class="projects">
+    <div class="card">
+      <h3>Personalized Restaurant Recommendation System</h3>
+      <p><em>Django, React.js, MySQL, TensorFlow</em></p>
+      <p>Hybrid ML model for personalized restaurant recommendations. Built content and collaborative filtering. Integrated UI with real-time filtering and responsive components.</p>
+    </div>
+    <div class="card">
+      <h3>Hospital Management System</h3>
+      <p><em>Flask, MongoDB, HTML/CSS, IoT</em></p>
+      <p>Managed patients, appointments, and medication tracking. Used IoT to track vitals and alerts. Enabled CRUD operations with Flask backend and MongoDB.</p>
+    </div>
+    <div class="card">
+      <h3>AWS Spotify Data Analysis</h3>
+      <p><em>AWS S3, Glue, Athena, QuickSight</em></p>
+      <p>Spotify data analysis using AWS architecture. Built ETL pipeline and data lake. Used QuickSight for interactive insights dashboard.</p>
+    </div>
+    <div class="card">
+      <h3>Immersive 3D Aquarium Simulation</h3>
+      <p><em>Three.js, WebGL, D3.js</em></p>
+      <p>Developed an animated aquarium environment with floating fish, plants, and lighting effects. Features smooth camera controls and WebGL shaders.</p>
+      <a href="https://siva144145.github.io/3D_FISH_AQUARIUM/" target="_blank" style="color: var(--primary); text-decoration: none; display: inline-block; margin-top: 1rem;">
+        View Project <i class="fas fa-external-link-alt"></i>
+      </a>
     </div>
   </section>
 
+  <!-- SKILLS SECTION -->
+  <div class="section-title">Technical Skills</div>
+  <section class="skills">
+    <div class="skill-icon"><i class="fab fa-python"></i><div class="skill-label">Python</div></div>
+    <div class="skill-icon"><i class="fas fa-database"></i><div class="skill-label">SQL</div></div>
+    <div class="skill-icon"><i class="fab fa-js-square"></i><div class="skill-label">JavaScript</div></div>
+    <div class="skill-icon"><i class="fab fa-aws"></i><div class="skill-label">AWS</div></div>
+    <div class="skill-icon"><i class="fas fa-database"></i><div class="skill-label">Oracle</div></div>
+    <div class="skill-icon"><i class="fab fa-react"></i><div class="skill-label">React.js</div></div>
+    <div class="skill-icon"><i class="fab fa-docker"></i><div class="skill-label">Docker</div></div>
+    <div class="skill-icon"><i class="fab fa-git-alt"></i><div class="skill-label">Git</div></div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <h3 style="margin-bottom: 1rem;">Get In Touch</h3>
-    <p><i class="fas fa-envelope"></i> shivashankar.reddy144@gmail.com</p>
-    <p style="margin-top: 1rem;">
+    <div style="font-size:1.2rem;font-weight:600;margin-bottom:0.5rem;">Get In Touch</div>
+    <div><i class="fas fa-envelope"></i> shivashankar.reddy144@gmail.com</div>
+    <div style="margin-top:1rem;">
       <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" target="_blank">
         <i class="fab fa-linkedin"></i> LinkedIn
       </a>
-    </p>
+    </div>
   </footer>
 </body>
 </html> 
