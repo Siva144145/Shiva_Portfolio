@@ -24,7 +24,6 @@
       min-height: 100vh;
       scroll-behavior: smooth;
     }
-    /* NAVBAR */
     nav {
       position: sticky;
       top: 0;
@@ -55,7 +54,6 @@
       background: var(--accent);
       color: #232526;
     }
-    /* HERO */
     .hero-section {
       min-height: 90vh;
       display: flex;
@@ -128,7 +126,6 @@
       color: var(--accent);
       transform: translateY(-2px) scale(1.04);
     }
-    /* Section Titles */
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
@@ -137,7 +134,6 @@
       margin: 4rem 0 2rem 0;
       letter-spacing: 1px;
     }
-    /* About */
     .about-section {
       max-width: 700px;
       margin: 0 auto 2.5rem auto;
@@ -145,6 +141,11 @@
       color: #dfe6e9;
       font-size: 1.1rem;
       opacity: 0.95;
+    }
+    /* Section Divider SVG */
+    .divider {
+      margin-top: -2px;
+      line-height: 0;
     }
     /* Timeline */
     .timeline-modern {
@@ -172,6 +173,13 @@
       margin-bottom: 3.5rem;
       position: relative;
       z-index: 1;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(.23,1.01,.32,1), transform 0.7s cubic-bezier(.23,1.01,.32,1);
+    }
+    .timeline-node.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .timeline-node.left { flex-direction: row; justify-content: flex-end; }
     .timeline-node.right { flex-direction: row-reverse; justify-content: flex-start; }
@@ -187,6 +195,7 @@
       border: 3px solid #fff;
       z-index: 2;
       transition: transform 0.2s;
+      cursor: pointer;
     }
     .timeline-card {
       background: var(--card);
@@ -202,9 +211,19 @@
       position: relative;
       z-index: 2;
       color: #fff;
+      cursor: pointer;
     }
     .timeline-card h3 { color: var(--accent); font-family: 'Playfair Display', serif; }
     .timeline-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 8px 32px rgba(0,198,255,0.13);}
+    .timeline-details {
+      display: none;
+      margin-top: 1rem;
+      color: #b2bec3;
+      font-size: 0.98rem;
+    }
+    .timeline-card.expanded .timeline-details {
+      display: block;
+    }
     /* Projects */
     .projects {
       display: grid;
@@ -255,7 +274,6 @@
     }
     .skill-icon:hover { transform: scale(1.09) translateY(-4px); box-shadow: 0 8px 24px rgba(0,198,255,0.13); color: #fff;}
     .skill-label { font-size: 1rem; margin-top: 0.5rem; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 500;}
-    /* Footer */
     footer {
       background: rgba(20,30,48,0.95);
       color: #fff;
@@ -310,11 +328,21 @@
       </a>
     </div>
   </section>
+  <div class="divider">
+    <svg viewBox="0 0 1440 80" width="100%" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#232526" fill-opacity="1" d="M0,32L1440,80L1440,0L0,0Z"></path>
+    </svg>
+  </div>
   <!-- ABOUT SECTION -->
   <div class="section-title" id="experience">About Me</div>
   <section class="about-section">
     I'm a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. Currently pursuing a Master's degree in Data Science from the University of Massachusetts Dartmouth.
   </section>
+  <div class="divider">
+    <svg viewBox="0 0 1440 80" width="100%" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#232526" fill-opacity="1" d="M0,32L1440,80L1440,0L0,0Z"></path>
+    </svg>
+  </div>
   <!-- TIMELINE SECTION -->
   <div class="section-title">Education & Experience</div>
   <section class="timeline-modern">
@@ -334,26 +362,56 @@
     </div>
     <div class="timeline-node left">
       <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-      <div class="timeline-card">
+      <div class="timeline-card" onclick="toggleDetails(this)">
         <h3>Infosys Ltd. – Senior Systems Engineer</h3>
         <p>Client: Conagra Brands (2022–2023)</p>
+        <div class="timeline-details">
+          <ul>
+            <li>Migrated enterprise-scale datasets from legacy systems to cloud environments using AWS Redshift and Snowflake</li>
+            <li>Designed and maintained ETL pipelines with AWS Glue</li>
+            <li>Automated data workflows using Python and Bash, reducing report generation time by 45%</li>
+            <li>Built interactive dashboards using Tableau and Cognos</li>
+            <li>Collaborated with DevOps and security teams to implement scalable and secure data governance practices</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="timeline-node right">
       <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-      <div class="timeline-card">
+      <div class="timeline-card" onclick="toggleDetails(this)">
         <h3>Tata Consultancy Services</h3>
         <p>Systems Engineer (2019–2022)</p>
+        <div class="timeline-details">
+          <ul>
+            <li>Maintained 24/7 high-availability Oracle 12c/19c databases on Exadata infrastructure</li>
+            <li>Executed end-to-end migrations and upgrades across environments</li>
+            <li>Performed SQL/PLSQL tuning, reducing query time by up to 50%</li>
+            <li>Automated health checks and backup monitoring</li>
+            <li>Managed backup strategies and DR processes</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="timeline-node left">
       <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-      <div class="timeline-card">
+      <div class="timeline-card" onclick="toggleDetails(this)">
         <h3>Airport Authority of India</h3>
         <p>Electronics & Communication Intern (2018–2019)</p>
+        <div class="timeline-details">
+          <ul>
+            <li>Trained under the CNS division, assisting with maintenance of VHF radios, radar, and navigation systems</li>
+            <li>Supported inspections and signal flow documentation for DME, DVOR, and other ATC equipment</li>
+            <li>Gained practical exposure to aviation communication systems and technical compliance procedures</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
+  <div class="divider">
+    <svg viewBox="0 0 1440 80" width="100%" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#232526" fill-opacity="1" d="M0,32L1440,80L1440,0L0,0Z"></path>
+    </svg>
+  </div>
   <!-- PROJECTS SECTION -->
   <div class="section-title" id="projects">Projects</div>
   <section class="projects">
@@ -380,7 +438,22 @@
         View Project <i class="fas fa-external-link-alt"></i>
       </a>
     </div>
+    <div class="card">
+      <h3>Real-time Social Media Sentiment Analysis</h3>
+      <p><em>Python, Tweepy, Flask, TextBlob, Matplotlib, AWS EC2</em></p>
+      <p>Built a Flask-based application that monitors live tweets and classifies them using NLP sentiment analysis. Visualizes user sentiment (positive/neutral/negative) over time using Matplotlib. Deployed on AWS EC2 to ensure real-time performance and dashboard availability.</p>
+    </div>
+    <div class="card">
+      <h3>Automated Resume Screening System</h3>
+      <p><em>Django, PostgreSQL, SpaCy, Bootstrap</em></p>
+      <p>Created a Django-based system that automates resume shortlisting for recruiters. It extracts content from PDF resumes, compares skills with job descriptions using SpaCy NLP, and ranks them based on relevance. Streamlines the hiring process by saving manual screening effort.</p>
+    </div>
   </section>
+  <div class="divider">
+    <svg viewBox="0 0 1440 80" width="100%" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#232526" fill-opacity="1" d="M0,32L1440,80L1440,0L0,0Z"></path>
+    </svg>
+  </div>
   <!-- SKILLS SECTION -->
   <div class="section-title" id="contact">Technical Skills</div>
   <section class="skills">
@@ -431,6 +504,21 @@
         }
       });
     });
+    // Timeline animation on scroll
+    function revealTimeline() {
+      document.querySelectorAll('.timeline-node').forEach(node => {
+        const rect = node.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          node.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealTimeline);
+    window.addEventListener('DOMContentLoaded', revealTimeline);
+    // Expand/collapse work experience details
+    function toggleDetails(card) {
+      card.classList.toggle('expanded');
+    }
   </script>
 </body>
 </html>
