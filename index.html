@@ -2,199 +2,403 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shiva Sankar Reddy Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --primary: #7e4dfc;
+      --secondary: #4a90e2;
+      --text: #2d3748;
+      --background: #f7fafc;
+      --card: #ffffff;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    * {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(120deg, #fefefe, #fdf4ef);
-      color: #333;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Smooth Scroll */
+    html {
       scroll-behavior: smooth;
     }
 
+    /* Header Styles */
     header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      position: relative;
+      background: var(--gradient);
+      color: white;
       text-align: center;
-      padding: 50px 20px 20px;
     }
 
-    header img {
-      width: 120px;
-      height: 120px;
+    .profile-container {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .profile-img {
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #ff6f00;
+      border: 4px solid white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
     }
 
     header h1 {
-      color: #ff6f00;
-      margin: 10px 0 5px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 1rem 0;
+      animation: fadeInUp 1s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease 0.2s backwards;
     }
 
     .download-resume {
-      margin: 10px;
       display: inline-block;
-      padding: 10px 20px;
-      background-color: #ff6f00;
-      color: white;
+      padding: 1rem 2rem;
+      background: white;
+      color: var(--primary);
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease 0.4s backwards;
     }
 
-    h2 {
+    .download-resume:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    /* About Section */
+    .about {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
       text-align: center;
-      margin-top: 40px;
-      color: #ff6f00;
     }
 
-    .center {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
     }
 
-    .skills, .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px 20px;
-      gap: 10px;
+    /* Timeline */
+    .timeline {
+      max-width: 1000px;
+      margin: 4rem auto;
+      position: relative;
+      padding: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: var(--gradient);
+    }
+
+    .timeline-item {
+      margin: 2rem 0;
+      position: relative;
+      width: 50%;
+      padding: 0 2rem;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+
+    .timeline-content {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .skill-icon {
       text-align: center;
-      padding: 10px;
-      transition: all 0.3s ease-in-out;
+      font-size: 2.5rem;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .skill-icon i {
+      margin-bottom: 0.5rem;
     }
 
     .skill-icon:hover {
-      animation: blink 0.4s ease-in-out infinite alternate;
-      cursor: pointer;
+      transform: translateY(-5px);
+      color: var(--secondary);
     }
 
-    @keyframes blink {
-      50% {
-        opacity: 0.5;
-        transform: scale(1.05);
+    /* Footer */
+    footer {
+      background: var(--gradient);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s ease;
+    }
+
+    footer a:hover {
+      opacity: 1;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    .card {
-      background-color: #fff;
-      border: 1px solid #fcd9b8;
-      border-radius: 10px;
-      padding: 20px;
-      width: 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
 
-    .card h3 {
-      color: #ff6f00;
-      font-size: 16px;
-      margin-bottom: 5px;
-    }
+      .timeline::before {
+        left: 0;
+      }
 
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 40px;
-      padding: 20px;
-    }
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 2rem;
+      }
 
-    .timeline-item {
-      margin-bottom: 20px;
-      border-left: 3px solid #ff6f00;
-      padding-left: 15px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #6c757d;
+      .projects {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="IMG_0459.jpeg" alt="Shiva Photo">
+    <div class="profile-container">
+      <img src="IMG_0459.jpeg" alt="Shiva Photo" class="profile-img">
+    </div>
     <h1>Shiva Sankar Reddy</h1>
     <p>Systems Engineer | Data Scientist | AWS Cloud Engineer</p>
-    <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="download-resume" download>Download Resume</a>
+    <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="download-resume" download>
+      <i class="fas fa-download"></i> Download Resume
+    </a>
   </header>
 
-  <section class="center">
-    <h2>Hi, It's <span style="color:#00aaff;">Shiva</span></h2>
-    <p><strong>I'm a Senior Systems Engineer</strong></p>
-    <p>I’m a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. Currently pursuing a Master’s degree in Data Science from the University of Massachusetts Dartmouth.</p>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I'm a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. Currently pursuing a Master's degree in Data Science from the University of Massachusetts Dartmouth.</p>
   </section>
 
   <section>
-    <h2>Education & Experience</h2>
+    <h2 style="text-align: center; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 3rem;">Education & Experience</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <strong>University of Massachusetts Dartmouth</strong><br>MS in Data Science (2023–2025)
+        <div class="timeline-content">
+          <h3>University of Massachusetts Dartmouth</h3>
+          <p>MS in Data Science (2023–2025)</p>
+        </div>
       </div>
       <div class="timeline-item">
-        <strong>SRM University, Chennai</strong><br>B.Tech in ECE (2015–2019)
+        <div class="timeline-content">
+          <h3>SRM University, Chennai</h3>
+          <p>B.Tech in ECE (2015–2019)</p>
+        </div>
       </div>
       <div class="timeline-item">
-        <strong>Infosys Ltd. – Senior Systems Engineer</strong><br>Client: Conagra Brands (2022–2023)
+        <div class="timeline-content">
+          <h3>Infosys Ltd. – Senior Systems Engineer</h3>
+          <p>Client: Conagra Brands (2022–2023)</p>
+        </div>
       </div>
       <div class="timeline-item">
-        <strong>Tata Consultancy Services – Systems Engineer</strong><br>Project: Ericsson & Refinitiv (2019–2022)
+        <div class="timeline-content">
+          <h3>Tata Consultancy Services</h3>
+          <p>Systems Engineer (2019–2022)</p>
+        </div>
       </div>
       <div class="timeline-item">
-        <strong>Airport Authority of India – Intern</strong><br>Electronics & Communication (2018–2019)
+        <div class="timeline-content">
+          <h3>Airport Authority of India</h3>
+          <p>Electronics & Communication Intern (2018–2019)</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Projects</h2>
+    <h2 style="text-align: center; color: var(--primary); font-family: 'Playfair Display', serif; margin: 3rem 0;">Projects</h2>
     <div class="projects">
       <div class="card">
         <h3>Personalized Restaurant Recommendation System</h3>
-        <p><em>Django, React.js, MySQL, TensorFlow</em><br>Hybrid ML model for personalized restaurant recommendations. Built content and collaborative filtering. Integrated UI with real-time filtering and responsive components.</p>
+        <p><em>Django, React.js, MySQL, TensorFlow</em></p>
+        <p>Hybrid ML model for personalized restaurant recommendations. Built content and collaborative filtering. Integrated UI with real-time filtering and responsive components.</p>
       </div>
       <div class="card">
         <h3>Hospital Management System</h3>
-        <p><em>Flask, MongoDB, HTML/CSS, IoT</em><br>Managed patients, appointments, and medication tracking. Used IoT to track vitals and alerts. Enabled CRUD operations with Flask backend and MongoDB.</p>
+        <p><em>Flask, MongoDB, HTML/CSS, IoT</em></p>
+        <p>Managed patients, appointments, and medication tracking. Used IoT to track vitals and alerts. Enabled CRUD operations with Flask backend and MongoDB.</p>
       </div>
       <div class="card">
         <h3>AWS Spotify Data Analysis</h3>
-        <p><em>AWS S3, Glue, Athena, QuickSight</em><br>Spotify data analysis using AWS architecture. Built ETL pipeline and data lake. Used QuickSight for interactive insights dashboard.</p>
+        <p><em>AWS S3, Glue, Athena, QuickSight</em></p>
+        <p>Spotify data analysis using AWS architecture. Built ETL pipeline and data lake. Used QuickSight for interactive insights dashboard.</p>
       </div>
       <div class="card">
         <h3>Immersive 3D Aquarium Simulation</h3>
-        <p><strong>Technologies Used:</strong> Three.js, WebGL, D3.js<br>
-        Developed an animated aquarium environment inside a cozy tent using 3D graphics and transformations. Features include floating fish, plants, lighting effects, and smooth camera controls built with WebGL shaders and Three.js.</p>
-        <p><strong>GitHub Link:</strong><br>
-        <a href="https://siva144145.github.io/3D_FISH_AQUARIUM/" target="_blank" style="word-break: break-all; display: inline-block; color: #7e4dfc;">https://siva144145.github.io/3D_FISH_AQUARIUM/</a></p>
+        <p><em>Three.js, WebGL, D3.js</em></p>
+        <p>Developed an animated aquarium environment with floating fish, plants, and lighting effects. Features smooth camera controls and WebGL shaders.</p>
+        <a href="https://siva144145.github.io/3D_FISH_AQUARIUM/" target="_blank" style="color: var(--primary); text-decoration: none; display: inline-block; margin-top: 1rem;">
+          View Project <i class="fas fa-external-link-alt"></i>
+        </a>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Technical Skills</h2>
+    <h2 style="text-align: center; color: var(--primary); font-family: 'Playfair Display', serif; margin: 3rem 0;">Technical Skills</h2>
     <div class="skills">
-      <div class="skill-icon"><i class="fab fa-python"></i><br>Python</div>
-      <div class="skill-icon"><i class="fas fa-database"></i><br>SQL</div>
-      <div class="skill-icon"><i class="fab fa-js-square"></i><br>JavaScript</div>
-      <div class="skill-icon"><i class="fab fa-aws"></i><br>AWS</div>
-      <div class="skill-icon"><i class="fas fa-database"></i><br>Oracle</div>
-      <div class="skill-icon"><i class="fab fa-react"></i><br>React.js</div>
-      <div class="skill-icon"><i class="fab fa-docker"></i><br>Docker</div>
-      <div class="skill-icon"><i class="fab fa-git-alt"></i><br>Git</div>
+      <div class="skill-icon">
+        <i class="fab fa-python"></i>
+        <p>Python</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-database"></i>
+        <p>SQL</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-js-square"></i>
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-aws"></i>
+        <p>AWS</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fas fa-database"></i>
+        <p>Oracle</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-react"></i>
+        <p>React.js</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-docker"></i>
+        <p>Docker</p>
+      </div>
+      <div class="skill-icon">
+        <i class="fab fa-git-alt"></i>
+        <p>Git</p>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>Email: shivashankar.reddy144@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" target="_blank">siva-sankar-reddy-pala</a></p>
+    <h3 style="margin-bottom: 1rem;">Get In Touch</h3>
+    <p><i class="fas fa-envelope"></i> shivashankar.reddy144@gmail.com</p>
+    <p style="margin-top: 1rem;">
+      <a href="https://www.linkedin.com/in/siva-sankar-reddy-pala-97a25123a" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </p>
   </footer>
 </body>
-</html>
+</html> 
