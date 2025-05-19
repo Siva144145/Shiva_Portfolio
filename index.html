@@ -54,39 +54,48 @@
       background: var(--accent);
       color: #232526;
     }
-    .hero-section {
-      min-height: 90vh;
+    /* HERO + ABOUT */
+    .hero-about-wrap {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      text-align: center;
+      gap: 3rem;
+      min-height: 60vh;
+      max-width: 1100px;
+      margin: 0 auto 0 auto;
       padding: 2rem 1rem 0 1rem;
     }
-    .hero-card {
+    .hero-ellipse {
       background: var(--glass);
-      border-radius: 2rem;
+      border-radius: 50% / 60%;
+      width: 220px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1.5px solid rgba(255,255,255,0.18);
-      padding: 2.5rem 2rem 2rem 2rem;
-      max-width: 400px;
-      margin: 0 auto;
-      z-index: 2;
     }
-    .profile-img {
-      width: 110px; height: 110px;
-      border-radius: 50%;
+    .profile-img-ellipse {
+      width: 170px;
+      height: 250px;
       object-fit: cover;
-      border: 3px solid var(--accent);
-      margin-bottom: 1.2rem;
+      border-radius: 50% / 60%;
+      border: 4px solid var(--accent);
       background: #fff;
       box-shadow: 0 4px 24px rgba(0,198,255,0.12);
     }
+    .hero-about-content {
+      flex: 1;
+      min-width: 280px;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
     .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       color: #fff;
       margin-bottom: 0.5rem;
@@ -94,7 +103,7 @@
     }
     .hero-role {
       color: #b2bec3;
-      font-size: 1rem;
+      font-size: 1.1rem;
       margin-bottom: 1.2rem;
     }
     .hero-socials {
@@ -126,21 +135,20 @@
       color: var(--accent);
       transform: translateY(-2px) scale(1.04);
     }
+    .about-section {
+      margin-top: 2rem;
+      color: #dfe6e9;
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 600px;
+    }
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       color: var(--accent);
-      text-align: center;
-      margin: 4rem 0 2rem 0;
+      text-align: left;
+      margin: 0 0 1rem 0;
       letter-spacing: 1px;
-    }
-    .about-section {
-      max-width: 700px;
-      margin: 0 auto 2.5rem auto;
-      text-align: center;
-      color: #dfe6e9;
-      font-size: 1.1rem;
-      opacity: 0.95;
     }
     /* Section Divider SVG */
     .divider {
@@ -289,13 +297,14 @@
       .timeline-modern { padding: 0; }
       .timeline-card { min-width: 140px; padding: 1.2rem 1rem; }
     }
+    @media (max-width: 900px) {
+      .hero-about-wrap { flex-direction: column; gap: 1.5rem; }
+      .hero-ellipse { width: 180px; height: 260px; }
+      .profile-img-ellipse { width: 130px; height: 180px; }
+      .hero-about-content { align-items: center; }
+      .section-title { text-align: center; }
+    }
     @media (max-width: 700px) {
-      .hero-card { max-width: 98vw; padding: 1.5rem 0.5rem; }
-      .section-title { font-size: 1.3rem; }
-      .timeline-modern::before { left: 20px; }
-      .timeline-node { flex-direction: column !important; align-items: flex-start; margin-bottom: 2.2rem; }
-      .timeline-icon { margin: 0 0 1rem 0; }
-      .timeline-card { min-width: 0; width: 100%; }
       .projects { grid-template-columns: 1fr; }
       .skills { gap: 1rem; }
       .nav-links { gap: 1.2rem; }
@@ -312,10 +321,12 @@
       <a href="#contact">Contact</a>
     </div>
   </nav>
-  <!-- HERO SECTION -->
-  <section class="hero-section" id="about">
-    <div class="hero-card">
-      <img src="IMG_0459.jpeg" alt="Shiva Photo" class="profile-img" />
+  <!-- HERO + ABOUT SECTION -->
+  <section class="hero-about-wrap" id="about">
+    <div class="hero-ellipse">
+      <img src="IMG_0459.jpeg" alt="Shiva Photo" class="profile-img-ellipse" />
+    </div>
+    <div class="hero-about-content">
       <div class="hero-title">Shiva Sankar Reddy</div>
       <div class="hero-role">Systems Engineer | Data Scientist | AWS Cloud Engineer</div>
       <div class="hero-socials">
@@ -326,6 +337,12 @@
       <a href="Shiva_Shankar_Reddy_Pala_Resume.docx" class="download-resume" download>
         <i class="fas fa-download"></i> Download Resume
       </a>
+      <div class="about-section">
+        <div class="section-title" style="margin:0 0 1rem 0;">About Me</div>
+        <p>
+          I'm a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. I completed my graduation at the University of Massachusetts Dartmouth with a Master's degree in Data Science.
+        </p>
+      </div>
     </div>
   </section>
   <div class="divider">
@@ -333,18 +350,8 @@
       <path fill="#232526" fill-opacity="1" d="M0,32L1440,80L1440,0L0,0Z"></path>
     </svg>
   </div>
-  <!-- ABOUT SECTION -->
-  <div class="section-title" id="experience">About Me</div>
-  <section class="about-section">
-    I'm a driven and detail-oriented Systems Engineer and Data Scientist with over 4 years of professional experience spanning Oracle database administration, AWS cloud architecture, data pipeline automation, and full-stack web development. Currently pursuing a Master's degree in Data Science from the University of Massachusetts Dartmouth.
-  </section>
-  <div class="divider">
-    <svg viewBox="0 0 1440 80" width="100%" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#232526" fill-opacity="1" d="M0,32L1440,80L1440,0L0,0Z"></path>
-    </svg>
-  </div>
   <!-- TIMELINE SECTION -->
-  <div class="section-title">Education & Experience</div>
+  <div class="section-title" id="experience" style="text-align:center;">Education & Experience</div>
   <section class="timeline-modern">
     <div class="timeline-node left">
       <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -413,7 +420,7 @@
     </svg>
   </div>
   <!-- PROJECTS SECTION -->
-  <div class="section-title" id="projects">Projects</div>
+  <div class="section-title" id="projects" style="text-align:center;">Projects</div>
   <section class="projects">
     <div class="card">
       <h3>Personalized Restaurant Recommendation System</h3>
@@ -455,7 +462,7 @@
     </svg>
   </div>
   <!-- SKILLS SECTION -->
-  <div class="section-title" id="contact">Technical Skills</div>
+  <div class="section-title" id="contact" style="text-align:center;">Technical Skills</div>
   <section class="skills">
     <div class="skill-icon"><i class="fab fa-python"></i><div class="skill-label">Python</div></div>
     <div class="skill-icon"><i class="fas fa-database"></i><div class="skill-label">SQL</div></div>
@@ -465,6 +472,13 @@
     <div class="skill-icon"><i class="fab fa-react"></i><div class="skill-label">React.js</div></div>
     <div class="skill-icon"><i class="fab fa-docker"></i><div class="skill-label">Docker</div></div>
     <div class="skill-icon"><i class="fab fa-git-alt"></i><div class="skill-label">Git</div></div>
+    <div class="skill-icon"><i class="fab fa-html5"></i><div class="skill-label">HTML5</div></div>
+    <div class="skill-icon"><i class="fab fa-css3-alt"></i><div class="skill-label">CSS3</div></div>
+    <div class="skill-icon"><i class="fas fa-chart-bar"></i><div class="skill-label">Tableau</div></div>
+    <div class="skill-icon"><i class="fas fa-chart-pie"></i><div class="skill-label">Power BI</div></div>
+    <div class="skill-icon"><i class="fab fa-node-js"></i><div class="skill-label">Node.js</div></div>
+    <div class="skill-icon"><i class="fab fa-typo3"></i><div class="skill-label">TypeScript</div></div>
+    <div class="skill-icon"><i class="fas fa-leaf"></i><div class="skill-label">MongoDB</div></div>
   </section>
   <!-- FOOTER -->
   <footer>
